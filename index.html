@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
+    />
+    <title>Comming Soon</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" type="img/png" href="favicon.png" />
+    <style>
+      *,
+      *:before,
+      *:after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "DM Sans", sans-serif;
+      }
+      .content {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px 15px;
+        flex-direction: column;
+        overflow: hidden;
+        background: rgb(32, 61, 122);
+        background: radial-gradient(
+          circle,
+          rgba(32, 61, 122, 1) 0%,
+          rgba(11, 36, 87, 1) 100%
+        );
+        position: relative;
+        transform: perspective(1px);
+      }
+      .pattern {
+        position: absolute;
+        width: 595px;
+        height: 50px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      .pattern img {
+        position: absolute;
+        width: 750px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .logo {
+        width: 200px;
+        height: auto;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      h1 {
+        font-size: 40px;
+        font-weight: 100;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 0;
+        letter-spacing: 5px;
+      }
+      h2 {
+        font-weight: 400;
+        font-size: 12px;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 0 0 20px;
+      }
+      .countdown {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+      }
+      @media (max-width: 767px) {
+        .countdown {
+          gap: 10px;
+        }
+      }
+      .time-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .time {
+        font-size: 48px;
+        width: 100px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: #ffa73e;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 100;
+      }
+      .time-content span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #fff;
+        margin-top: 7px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        display: block;
+      }
+      @media (max-width: 767px) {
+        .countdown {
+          gap: 10px;
+        }
+        .time {
+          font-size: 24px;
+          width: 75px;
+        }
+        .time-content span{
+            font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="pattern">
+        <img src="bg.png" />
+      </div>
+      <h1>Comming Soon</h1>
+      <h2>WEBSITE IS UNDER CONSTRUCTION. PLEASE SEND US EMAIL DIRECTLY</h2>
+      <div class="countdown">
+        <div class="time-content">
+          <strong class="time" id="days"></strong>
+          <span>Day(s)</span>
+        </div>
+        <div class="time-content">
+          <strong class="time" id="hours"></strong>
+          <span>Hour(s)</span>
+        </div>
+        <div class="time-content">
+          <strong class="time" id="minutes"></strong>
+          <span>Minute(s)</span>
+        </div>
+        <div class="time-content">
+          <strong class="time" id="seconds"></strong>
+          <span>Second(s)</span>
+        </div>
+      </div>
+      <img src="logo.png" class="logo" alt="Comming Soon" />
+    </div>
+    <script>
+      var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+      var x = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
